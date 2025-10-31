@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.chaincomplejo.Controller.RegistroController"
+            prefWidth="720" prefHeight="520"
+            style="-fx-background-color:#111827;">
+
+    <top>
+        <HBox spacing="10" style="-fx-background-color:#0b1020;" BorderPane.alignment="CENTER_LEFT">
+            <children>
+                <Text text="Cadena de Responsabilidad — Registro de Usuario (Demo)"
+                      style="-fx-fill:#e5e7eb; -fx-font-size:16; -fx-font-weight:bold;"/>
+            </children>
+            <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="12">
+            <padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+
+            <Text text="Solicitud" style="-fx-fill:#e5e7eb; -fx-font-weight:bold; -fx-font-size:14;"/>
+
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="120"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <children>
+                    <Label text="Nombre:" style="-fx-text-fill:#e5e7eb;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtNombre" promptText="Nombre"
+                               GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Email:" style="-fx-text-fill:#e5e7eb;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtEmail" promptText="usuario@correo.com"
+                               GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Contraseña:" style="-fx-text-fill:#e5e7eb;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <PasswordField fx:id="txtPassword" promptText="Contraseña segura"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                </children>
+            </GridPane>
+
+            <Text text="Validadores activos (orden):" style="-fx-fill:#e5e7eb; -fx-font-weight:bold; -fx-font-size:14;"/>
+
+            <HBox spacing="16">
+                <children>
+                    <CheckBox fx:id="cbRequired" text="Campos Obligatorios" selected="true"/>
+                    <CheckBox fx:id="cbEmail" text="Formato Email" selected="true"/>
+                    <CheckBox fx:id="cbPassword" text="Contraseña Segura" selected="true"/>
+                    <CheckBox fx:id="cbUnique" text="Email Unico" selected="true"/>
+                </children>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <children>
+                    <Button fx:id="btnDemoOk" text="Autocompletar OK"/>
+                    <Button fx:id="btnDemoError" text="Autocompletar ERROR"/>
+                    <Button fx:id="btnValidar" text="Validar"/>
+                    <Button fx:id="btnLimpiar" text="Limpiar"/>
+                </children>
+            </HBox>
+
+            <Text text="Resultado" style="-fx-fill:#ffffff; -fx-font-weight:bold; -fx-font-size:14;"/>
+            <Label fx:id="lblResultado" style="-fx-text-fill:#e5e7eb; -fx-font-size:13;"/>
+
+            <Text text="Log" style="-fx-fill:#e5e7eb; -fx-font-weight:bold; -fx-font-size:14;"/>
+            <TextArea fx:id="txtLog" editable="false" prefRowCount="10"
+                      style="-fx-control-inner-background:#0b1020; -fx-text-fill:#e5e7eb;"/>
+        </VBox>
+    </center>
+</BorderPane>
