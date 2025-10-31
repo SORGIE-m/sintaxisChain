@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="root"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.chainr.Controller.ChainViewController"
+            prefWidth="980" prefHeight="720"
+            style="-fx-background-color:#111827;">
+    <!-- Header -->
+    <top>
+        <HBox spacing="10" style="-fx-background-color:#0b1020;" BorderPane.alignment="CENTER_LEFT">
+            <children>
+                <Text text="Cadena de Responsabilidad — Demo (MVC)"
+                      style="-fx-fill:#e5e7eb; -fx-font-size:18; -fx-font-weight:bold;"/>
+            </children>
+            <padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="8" BorderPane.alignment="CENTER">
+            <children>
+                <Text text="Solicitud" style="-fx-fill:#e5e7eb; -fx-font-weight:bold; -fx-font-size:14;"/>
+
+                <!-- Form -->
+                <GridPane hgap="10" vgap="10">
+                    <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="120"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                        <ColumnConstraints minWidth="120"/>
+                        <ColumnConstraints minWidth="120"/>
+                    </columnConstraints>
+                    <children>
+                        <Label text="Mensaje:" style="-fx-text-fill:#e5e7eb;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextArea fx:id="txtMessage" wrapText="true" prefRowCount="4"
+                                  GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+
+                        <Label text="Longitud máx.:" style="-fx-text-fill:#e5e7eb;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <Spinner fx:id="spnMaxLen" editable="false" prefWidth="120"
+                                 GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Filtros activos:" style="-fx-text-fill:#e5e7eb;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <HBox spacing="12" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="3">
+                            <children>
+                                <CheckBox fx:id="cbLength" text="LengthHandler" selected="true"/>
+                                <CheckBox fx:id="cbLanguage" text="LanguageHandler" selected="true"/>
+                                <CheckBox fx:id="cbSpam" text="SpamHandler" selected="true"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </GridPane>
+
+                <Text text="Cadena (visual)" style="-fx-fill:#e5e7eb; -fx-font-weight:bold; -fx-font-size:14;"/>
+                <ScrollPane fitToHeight="true" prefHeight="160" style="-fx-background:#0b1020; -fx-background-insets:0; -fx-padding:8;">
+                    <content>
+                        <HBox fx:id="boxCards" spacing="12" alignment="CENTER_LEFT">
+                            <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                        </HBox>
+                    </content>
+                </ScrollPane>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <children>
+                        <Button fx:id="btnRun" text="Ejecutar cadena"/>
+                        <Button fx:id="btnReset" text="Reset estado"/>
+                        <Button fx:id="btnSpamDemo" text="Autocompletar SPAM demo"/>
+                    </children>
+                </HBox>
+
+                <Text text="Logs" style="-fx-fill:#e5e7eb; -fx-font-weight:bold; -fx-font-size:14;"/>
+                <TextArea fx:id="txtLog" editable="false"
+                          style="-fx-control-inner-background:#0b1020; -fx-text-fill:#e5e7eb;" prefRowCount="10"/>
+            </children>
+            <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+        </VBox>
+    </center>
+</BorderPane>
