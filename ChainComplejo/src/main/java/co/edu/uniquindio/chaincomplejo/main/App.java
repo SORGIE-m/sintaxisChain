@@ -1,13 +1,24 @@
 package co.edu.uniquindio.chaincomplejo.main;
 
 import co.edu.uniquindio.chaincomplejo.model.*;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * CLASE CLIENTE - OBLIGATORIO
  * Construye la cadena y la utiliza
  * Demuestra el patrón en acción
  */
-public class App {
+public class App extends Application {
+    public void start(Stage stage) throws Exception {
+        var url = App.class.getResource("/co/edu/uniquindio/chaincomplejo/View/RegistroView.fxml");
+        FXMLLoader loader = new FXMLLoader(url);
+        stage.setTitle("Registro — Chain of Responsibility (Demo)");
+        stage.setScene(new Scene(loader.load(), 720, 520));
+        stage.show();
+    }
     public static void main(String[] args) {
         // Configuración de dependencias
         UsuarioRepository repositorio = new InMemoryUsuarioRepo();
@@ -30,5 +41,7 @@ public class App {
         System.out.println("Caso 2: " + cadena.validate(caso2)); // ERROR nombre
         System.out.println("Caso 3: " + cadena.validate(caso3)); // ERROR email inválido
         System.out.println("Caso 4: " + cadena.validate(caso4)); // ERROR email ya registrado
+
+        launch(args);
     }
 }

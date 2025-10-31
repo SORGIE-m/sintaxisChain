@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ChainComplejo/ChainComplejo.iml" filepath="$PROJECT_DIR$/ChainComplejo/ChainComplejo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/sintaxisChain.iml" filepath="$PROJECT_DIR$/.idea/sintaxisChain.iml" />
     </modules>
   </component>
